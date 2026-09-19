@@ -1,0 +1,30 @@
+{
+  "name": "3d-shooting-game",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev:server": "nodemon server/server.js",
+    "dev:client": "vite",
+    "dev:tunnel": "cloudflared.exe tunnel --url http://localhost:3000",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\" \"npm run dev:tunnel\"",
+    "build": "vite build"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cannon-es": "^0.20.0",
+    "express": "^5.2.1",
+    "socket.io": "^4.8.3",
+    "socket.io-client": "^4.8.3",
+    "three": "^0.186.0",
+    "uuid": "^14.0.2"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.4",
+    "nodemon": "^3.1.14",
+    "vite": "^6.4.3"
+  }
+}

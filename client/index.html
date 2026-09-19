@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>3D WebGL FPS Game</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Fullscreen Toggle Button (for mobile phone optimization and fullscreen entry/exit) -->
+    <button id="btn-fullscreen" class="fullscreen-toggle" aria-label="Toggle Fullscreen" title="Toggle Fullscreen">
+      <svg class="icon-enter-fullscreen" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+      </svg>
+      <svg class="icon-exit-fullscreen hidden" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 10h4V6m8 0v4h4m0 8h-4v4m-8 0v-4H4" />
+      </svg>
+      <span class="fullscreen-label">Fullscreen</span>
+    </button>
+    <!-- Lobby UI Overlay -->
+    <div id="lobby-container" class="lobby-overlay">
+      <div class="lobby-panel">
+        <h1>WebGL FPS</h1>
+        
+        <div id="main-menu">
+          <button id="btn-play-now" class="btn primary">Play Now</button>
+          <button id="btn-create-room" class="btn">Create Custom Room</button>
+          <button id="btn-join-private" class="btn">Join Private Room</button>
+          
+          <div class="room-list-container">
+            <h3>Public Rooms</h3>
+            <ul id="public-room-list">
+              <li>Loading rooms...</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Create Room Form (Hidden by default) -->
+        <div id="create-room-form" class="hidden">
+          <h2>Create Room</h2>
+          <div class="form-group">
+            <label>Map Size</label>
+            <select id="map-size">
+              <option value="small">Small</option>
+              <option value="medium" selected>Medium</option>
+              <option value="large">Large</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>AI Bot Count (<span id="bot-count-label">5</span>)</label>
+            <input type="range" id="bot-count" min="0" max="20" value="5">
+          </div>
+          <div class="form-group">
+            <label>Visibility</label>
+            <select id="room-visibility">
+              <option value="public" selected>Public</option>
+              <option value="private">Private</option>
+            </select>
+          </div>
+          <div class="form-group hidden" id="password-group">
+            <label>Password</label>
+            <input type="text" id="room-password" placeholder="Enter password">
+          </div>
+          <div class="form-actions">
+            <button id="btn-submit-create" class="btn primary">Create</button>
+            <button id="btn-cancel-create" class="btn">Cancel</button>
+          </div>
+        </div>
+
+        <!-- Join Private Room Form (Hidden by default) -->
+        <div id="join-private-form" class="hidden">
+          <h2>Join Private Room</h2>
+          <div class="form-group">
+            <label>Room ID</label>
+            <input type="text" id="join-room-id" placeholder="Room ID">
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="text" id="join-room-password" placeholder="Password">
+          </div>
+          <div class="form-actions">
+            <button id="btn-submit-join" class="btn primary">Join</button>
+            <button id="btn-cancel-join" class="btn">Cancel</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- HUD (Hidden by default) -->
+    <div id="hud" class="hidden">
+      <div id="health-bar">Health: 100</div>
+      <div id="ammo-bar">Ammo: 30 / 30</div>
+      <div id="crosshair">+</div>
+    </div>
+
+    <!-- Mobile Controls (Hidden by default) -->
+    <div id="mobile-controls" class="hidden">
+      <div id="touch-move-zone"></div>
+      <div id="touch-look-zone"></div>
+      <button id="btn-shoot" class="btn-fire" aria-label="Fire Weapon">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"></circle>
+          <circle cx="12" cy="12" r="3"></circle>
+          <line x1="12" y1="1" x2="12" y2="5"></line>
+          <line x1="12" y1="19" x2="12" y2="23"></line>
+          <line x1="1" y1="12" x2="5" y2="12"></line>
+          <line x1="19" y1="12" x2="23" y2="12"></line>
+        </svg>
+        <span>FIRE</span>
+      </button>
+      <button id="btn-jump">JUMP</button>
+      <div id="joystick-move" class="joystick-base hidden"><div class="joystick-thumb"></div></div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

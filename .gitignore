@@ -1,0 +1,12 @@
+node_modules/
+dist/
+cloudflared.exe
+scratch/
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+.vite/
+.vscode/
