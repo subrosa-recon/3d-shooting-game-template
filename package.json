@@ -5,7 +5,7 @@
   "scripts": {
     "dev:server": "nodemon server/server.js",
     "dev:client": "vite",
-    "dev:tunnel": "cloudflared.exe tunnel --url http://localhost:3000",
+    "dev:tunnel": "npx cloudflared tunnel --url http://localhost:3000",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\" \"npm run dev:tunnel\"",
     "build": "vite build"
   },
