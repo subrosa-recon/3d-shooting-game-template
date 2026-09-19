@@ -103,21 +103,21 @@ The project includes built-in support for Cloudflare Quick Tunnels, allowing you
 
 ```
 ├── client/
-│   ├── index.html            # Main HTML with HUD, Lobby, and Mobile Touch UI
-│   ├── style.css             # Responsive styling & HUD themes
+│   ├── index.html             # Main HTML with HUD, Lobby, and Mobile Touch UI
+│   ├── style.css              # Responsive styling & HUD themes
 │   └── src/
-│       ├── main.js           # Lobby UI, room management, and game start logic
+│       ├── main.js            # Lobby UI, room management, and game start logic
 │       ├── engine/
-│       │   ├── engine.js     # Three.js scene, Cannon-es physics loop, renderer
-│       │   ├── controls.js   # Desktop & touch input handlers, momentum physics
-│       │   ├── shooting.js   # Weapon firing, raycasting, bullet tracer pooling
-│       │   └── environment.js# Procedural crates and boundary walls
+│       │   ├── engine.js      # Three.js scene, Cannon-es physics loop, renderer
+│       │   ├── controls.js    # Desktop & touch input handlers, momentum physics
+│       │   ├── shooting.js    # Weapon firing, raycasting, bullet tracer pooling
+│       │   └── environment.js # Procedural crates and boundary walls
 │       ├── network/
-│       │   └── network.js    # Multiplayer state synchronization & tracers
+│       │   └── network.js     # Multiplayer state synchronization & tracers
 │       └── ui/
-│           └── fullscreen.js # Responsive fullscreen & orientation manager
+│           └── fullscreen.js  # Responsive fullscreen & orientation manager
 ├── server/
-│   └── server.js             # Authoritative Socket.io server & Smart AI bot loop
-├── vite.config.js            # Vite config with WebSocket proxy and host security
-└── package.json              # Project dependencies and startup scripts
+│   └── server.js              # Authoritative Socket.io server & Smart AI bot loop
+├── vite.config.js             # Vite config with WebSocket proxy and host security
+└── package.json               # Project dependencies and startup scripts
 ```
